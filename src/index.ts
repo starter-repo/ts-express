@@ -1,8 +1,17 @@
 import express, { Application } from 'express'
+import dotenv from 'dotenv'
+import { connectDb } from './mongo'
 
 const app: Application = express()
-const PORT: number = 3000
+const port = process.env.PORT || 3000
+dotenv.config()
 
-app.listen(PORT, () => {
-  console.log(`App is live at port ${PORT}`)
-})
+connectDb()
+  .then(() =>
+    app.listen(port, () => {
+      console.log(`App is live at port ${port}`)
+    })
+  )
+  .catch((e) => {
+    console.log(e)
+  })
