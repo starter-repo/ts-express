@@ -1,10 +1,11 @@
 import express, { Application } from 'express'
 import dotenv from 'dotenv'
 import { connectDb } from './mongo'
+import configuration from './config/configuration'
 
-const app: Application = express()
-const port = process.env.PORT || 3000
 dotenv.config()
+const app: Application = express()
+const port = configuration().port
 
 connectDb()
   .then(() =>
