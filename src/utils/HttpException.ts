@@ -1,14 +1,10 @@
-export class HttpException {
-  readonly response: string
-  readonly status: number
+export class HttpException extends Error {
+  readonly statusCode: number
+  readonly message: string
 
-  constructor(status: number, response: string) {
-    this.status = status
-    this.response = response
-    this.init()
-  }
-
-  private init = function () {
-    return 'hello'
+  constructor(statusCode: number, message: string) {
+    super(message)
+    this.statusCode = statusCode
+    this.message = message
   }
 }
