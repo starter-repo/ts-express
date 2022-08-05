@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import { connectDb } from './mongo'
 import configuration from './config/configuration'
 import { handleHttpError, handleUnexpectedError } from './middleware/httpError'
-import routes from '../routes'
+import routes from './routes'
 
 dotenv.config()
 const app: Application = express()
@@ -23,5 +23,6 @@ connectDb()
     })
   )
   .catch((e) => {
+    // TODO: log error
     console.log(e)
   })

@@ -2,7 +2,11 @@ import { Schema, model, Model } from 'mongoose'
 import { UserDocument } from './user.model'
 
 const userSchema = new Schema({
-  email: {
+  userId: {
+    type: String,
+    required: true,
+  },
+  username: {
     type: String,
     required: true,
   },
