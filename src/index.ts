@@ -1,4 +1,5 @@
 import express, { Application } from 'express'
+import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import { connectDb } from './mongo'
 import configuration from './config/configuration'
@@ -11,8 +12,9 @@ const app: Application = express()
 const port = configuration().port
 
 app.use(express.json())
+app.use(cookieParser())
 
-app.use('/api', routes)
+app.use('/api/v1', routes)
 
 app.use(handleHttpError)
 app.use(handleUnexpectedError)
