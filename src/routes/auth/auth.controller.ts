@@ -48,8 +48,8 @@ router.post(
       }
       res.cookie('accessToken', result.authToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: 'strict',
+        // secure: true,
+        // sameSite: 'strict',
       })
       logger.info(`success: signup user with username: ${signupDto.username}`, {
         metthod: 'post',
