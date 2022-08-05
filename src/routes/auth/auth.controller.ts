@@ -7,6 +7,13 @@ import { SignupDto } from './dto/signup.dto'
 
 const router = Router()
 
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login
+ *     description: Returns a cookie with jwt upon successful login
+ */
 router.post(
   '/login',
   dtoValidationMiddleware(LoginDto),
