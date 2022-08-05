@@ -4,6 +4,7 @@ import { connectDb } from './mongo'
 import configuration from './config/configuration'
 import { handleHttpError, handleUnexpectedError } from './middleware/httpError'
 import routes from './routes'
+import { logger } from './utils/logger'
 
 dotenv.config()
 const app: Application = express()
@@ -19,10 +20,9 @@ app.use(handleUnexpectedError)
 connectDb()
   .then(() =>
     app.listen(port, () => {
-      console.log(`App is live at port ${port}`)
+      logger.info(`App is live at port ${port}`)
     })
   )
   .catch((e) => {
-    // TODO: log error
-    console.log(e)
+    logger.error('MongoDb failed to start')
   })
