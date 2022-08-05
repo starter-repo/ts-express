@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken'
 import configuration from '../../config/configuration'
 import { AuthFailure, AuthSuccess } from './auth.model'
 import { SignupDto } from './dto/signup.dto'
+import { logger } from '../../utils/logger'
 
 const login = async (
   loginDto: LoginDto
@@ -30,8 +31,11 @@ const login = async (
       expiresIn: configuration().jwtExpiryTime,
     })
     return { success: true, statusCode: 201, authToken: token }
-  } catch (error) {
-    // TODO: logging
+  } catch (error: any) {
+    logger.error('error: login user', {
+      method: 'post',
+      errorMessage: error.message,
+    })
     return { success: false, statusCode: 500, message: 'Unexpected error' }
   }
 }
@@ -62,8 +66,11 @@ const signup = async (
       expiresIn: configuration().jwtExpiryTime,
     })
     return { success: true, statusCode: 201, authToken: token }
-  } catch (error) {
-    // TODO: logging
+  } catch (error: any) {
+    logger.error('error: register user', {
+      method: 'post',
+      errorMessage: error.message,
+    })
     return { success: false, statusCode: 500, message: 'Unexpected error' }
   }
 }
