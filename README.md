@@ -1,4 +1,4 @@
-# Express Application in Typescript Starter
+# Express Application in Typescript Starter Project
 
 You can save the trouble of setting up an express application from scratch. Fork this repo to start working on your express application with the following features!!
 
