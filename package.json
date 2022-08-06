@@ -9,7 +9,9 @@
   "scripts": {
     "start": "tsc && node dist/index.js",
     "dev": "nodemon src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "lint": "eslint . --ext .ts",
+    "lint: fix": "eslint . --ext .ts --fix"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -32,8 +34,12 @@
     "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "^18.0.4",
     "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
     "dotenv": "^16.0.1",
+    "eslint": "^8.21.0",
     "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
     "ts-node": "^10.9.1"
   }
 }

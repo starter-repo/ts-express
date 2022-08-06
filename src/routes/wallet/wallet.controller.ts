@@ -19,7 +19,7 @@ router.post(
         throw new HttpException(result.statusCode, result.message)
       }
       logger.info(`success: create wallet with userId: ${req.userId}`, {
-        metthod: 'post',
+        method: 'post',
         userId: req.userId,
         walletId: result.data.walletId,
       })
