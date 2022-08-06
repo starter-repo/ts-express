@@ -13,6 +13,14 @@ dotenv.config()
 const app: Application = express()
 const port = configuration().port
 
+declare global {
+  namespace Express {
+    export interface Request {
+      userId: string
+    }
+  }
+}
+
 app.use(express.json())
 app.use(cookieParser())
 app.use(corsWithOptions)
