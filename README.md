@@ -9,5 +9,6 @@ You can save the trouble of setting up an express application from scratch. Fork
 4. Protected wallet routes 
 5. Customized error handling 
 6. Winston logging
+7. Eslint and prettier for linting and formatting
 
 Many more to come! 
