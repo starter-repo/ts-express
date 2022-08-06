@@ -25,7 +25,7 @@ router.post(
         sameSite: 'strict',
       })
       logger.info(`success: login user with username: ${loginDto.username}`, {
-        metthod: 'post',
+        method: 'post',
         username: loginDto.username,
       })
       return res.status(res.statusCode).json({ message: 'Successful Login' })
@@ -52,7 +52,7 @@ router.post(
         // sameSite: 'strict',
       })
       logger.info(`success: signup user with username: ${signupDto.username}`, {
-        metthod: 'post',
+        method: 'post',
         username: signupDto.username,
       })
       return res

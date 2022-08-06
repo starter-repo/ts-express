@@ -1,7 +1,6 @@
 import express, { Application } from 'express'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
-import cors from 'cors'
 import { connectDb } from './mongo'
 import configuration from './config/configuration'
 import { handleHttpError, handleUnexpectedError } from './middleware/httpError'
@@ -14,6 +13,7 @@ const app: Application = express()
 const port = configuration().port
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
     export interface Request {
       userId: string
@@ -37,5 +37,5 @@ connectDb()
     })
   )
   .catch((e) => {
-    logger.error('MongoDb failed to start')
+    logger.error('MongoDb failed to start', e)
   })
