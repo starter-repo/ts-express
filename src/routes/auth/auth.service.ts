@@ -1,7 +1,7 @@
 import { LoginDto } from './dto/login.dto'
 import { userModel } from '../../mongo/user'
 import { v4 } from 'uuid'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import configuration from '../../config/configuration'
 import { AuthFailure, AuthSuccess } from './auth.model'
